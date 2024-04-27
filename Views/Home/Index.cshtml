@@ -1,0 +1,186 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.common.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.default.min.css" />
+
+<div id="GridData"></div>
+<button id="deleteSelectedRows">Delete Selected Rows</button>
+
+<div id="buyPopup"></div>
+
+
+<script> 
+    $(document).ready(function(){
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "/home/GetAllStudent",
+                    type: "GET",
+                    dataType: "json",
+                    data: function(data){
+                        console.log(data);
+                    }
+                },
+                create:{
+                    url: "/home/AddStudent",
+                    type: "POST",
+                    dataType: "json",
+                    data: function (data) {
+                        data.c_admission_date = kendo.toString(data.c_admission_date, "yyyy-MM-dd");
+                        console.log("Data to be sent:", data); 
+                        return JSON.stringify(data);
+                    },
+                },
+                update: {
+                    url: "/home/EditStudent",
+                    type: "POST",
+                    dataType: "json",
+                    data: function (data) {
+                        data.c_admission_date = kendo.toString(data.c_admission_date, "yyyy-MM-dd");
+                        console.log("Data to be sent:", data); 
+                        return JSON.stringify(data);
+                    },
+                },
+                destroy:{
+                    url: function(data){
+                        return "/home/DeleteStudent/" + data.c_sid;
+                    },
+                    type: "DELETE",
+                    dataType: "json",
+                    data: function(data){
+                        console.log(data);
+                    }
+                }
+            },
+            pageSize: 10,
+            schema: {
+                model: {
+                    id: "c_sid",
+                    fields: {
+                        c_sid: { type: "number", editable: false },
+                        c_name: { type: "string" },
+                        c_gender: { type: "string" },
+                        c_photo: { type: "string", editor: imageupload},
+                        c_area: { type: "string" },
+                        c_admission_date: { type: "date" },
+                        c_hobby: { type: "string" },
+                    }
+                }
+            }
+        });
+
+        $("#GridData").kendoGrid({
+            dataSource: dataSource,
+            pageable: true,
+            editable: "popup",
+            toolbar: ["create", "search"],
+            search:{
+                fields:[ "c_name"]
+            },
+            columns: [
+             { selectable: true, width: "50px" },
+                { field: "c_sid", title: "SID",  },
+                { field: "c_name", title: "Name",  },
+                { field: "c_gender", title: "Gender",editor: gender},
+                { field: "c_photo", title: "Photo", editor: imageupload, template: "<img src='/images/#= c_photo #' alt='Photo' style='max-width: 100px; max-height: 100px;'/>"},
+                { field: "c_area", title: "City", editor: dropDownForCity },
+                { field: "c_admission_date", title: "Admission Date", format: "{0:yyyy-MM-dd}",  },
+                { field: "c_hobby", title: "Hobby", editor: hobby  },
+                {command : ["edit", "destroy"], width: "200px"}
+            ]
+        });
+        dataSource.bind("requestEnd", function (e) {
+            if (e.type === "create" || e.type === "update" || e.type === "destroy") {
+                dataSource.read();
+            }
+        });
+
+        function dropDownForCity(container, option){
+            $('<input data-text-field="c_cityname" data-values-field="c_cityname" data-bind="value:'+option.field+'" />')
+            .appendTo(container)
+            .kendoDropDownList({
+                 dataTextField: "c_cityname", // Specify the property for displaying the text
+            dataValueField: "c_cityname",
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "/home/GetAllCity",
+                            dataType: "json",
+                        }
+                    },
+                }
+            });
+        }
+
+        function gender(container, options){
+            $('<input type="radio" name="' + options.field + '" value="Male" required/> Male' +
+            '<input type="radio" name="' + options.field + '" value="Female" required/>  Female'+
+            '<label></label>'
+            )
+            .appendTo(container);
+        } 
+        function imageupload(container, options) {
+            if (options.model.isNew()) {
+                $('<input name="photo" type="file" id="photo" data-role="upload" data-async=\'{ "saveUrl": "http://localhost:5084/home/UploadImage", "autoUpload": true }\' class="k-input k-textbox">').appendTo(container);
+            } else {
+                var imgElement = $('<img id="existingImage" src="/images/' + options.model.c_photo + '" alt="emp Photo" style="max-width: 100px; max-height: 100px;"/>');
+                imgElement.appendTo(container);
+                imgElement.click(function () {
+                    $("#photo").click();
+                });
+            }
+        }
+
+        function hobby(container, options) {
+    var checkboxWrapper = $('<div>').appendTo(container);
+
+    checkboxWrapper.kendoCheckBoxGroup({
+        items: [
+            { label: "abc", value: "abc" },
+            { label: "xyz", value: "xyz" }
+        ]
+    });
+
+    var checkboxGroup = checkboxWrapper.data("kendoCheckBoxGroup");
+
+    checkboxGroup.value(options.model.c_hobby ? options.model.c_hobby.split(",") : []);
+
+    checkboxGroup.bind("change", function (e) {
+        options.model.set("c_hobby", e.sender.value().join(","));
+    });
+}
+
+
+
+  $("#deleteSelectedRows").click(function() {
+            var grid = $("#GridData").data("kendoGrid");
+            var selectedItems = grid.select();
+            var selectedDataItems = [];
+            selectedItems.each(function(index, row) {
+                var dataItem = grid.dataItem(row);
+                selectedDataItems.push(dataItem);
+            });
+
+            if (selectedDataItems.length > 0) {
+                if (confirm("Are you sure you want to delete the selected rows?")) {
+                    $.each(selectedDataItems, function(index, dataItem) {
+                        dataSource.remove(dataItem);
+                    });
+                    dataSource.sync();
+                }
+            } else {
+                alert("Please select at least one row to delete.");
+            }
+        });
+        
+    });
+
+
+
+
+
+</script>
