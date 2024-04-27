@@ -56,7 +56,7 @@
                     }
                 }
             },
-            pageSize: 10,
+            pageSize: 5,
             schema: {
                 model: {
                     id: "c_sid",
@@ -77,9 +77,12 @@
             dataSource: dataSource,
             pageable: true,
             editable: "popup",
-            toolbar: ["create", "search"],
+            toolbar: ["create", "search", "pdf"],
             search:{
                 fields:[ "c_name"]
+            },
+            pdf:{
+                allPages: true,
             },
             columns: [
              { selectable: true, width: "50px" },

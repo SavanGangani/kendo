@@ -31,3 +31,4 @@ F:\PPSU\sem-08\casepoint\CoreMvc\DEMOPROJECT\mvc\obj\Debug\net8.0\ref\mvc.dll
 F:\PPSU\sem-08\casepoint\CoreMvc\DEMOPROJECT\mvc\bin\Debug\net8.0\Npgsql.dll
 F:\PPSU\sem-08\casepoint\CoreMvc\DEMOPROJECT\mvc\obj\Debug\net8.0\mvc.csproj.AssemblyReference.cache
 F:\PPSU\sem-08\casepoint\CoreMvc\DEMOPROJECT\mvc\obj\Debug\net8.0\mvc.csproj.Up2Date
+F:\PPSU\sem-08\casepoint\CoreMvc\DEMOPROJECT\mvc\obj\Debug\net8.0\mvc.sourcelink.json

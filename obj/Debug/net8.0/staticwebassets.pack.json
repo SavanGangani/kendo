@@ -13,12 +13,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\225-2253415_maggi-masala-noodles-140g-hd-png-download.png",
+      "PackagePath": "staticwebassets\\images\\225-2253415_maggi-masala-noodles-140g-hd-png-download.png"
+    },
+    {
       "Id": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\9e89c5bf28e (1).png",
       "PackagePath": "staticwebassets\\images\\9e89c5bf28e (1).png"
     },
     {
       "Id": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\Ceramic Jar.jpg",
       "PackagePath": "staticwebassets\\images\\Ceramic Jar.jpg"
+    },
+    {
+      "Id": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\Login.png",
+      "PackagePath": "staticwebassets\\images\\Login.png"
     },
     {
       "Id": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\World Health Day (4).png",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DR37TbKSujwSNzxlFXEORLAy3EIg0Xx5VN/9WtbyqRQ=",
+  "Hash": "8/yCvv6SmV5C+mOo1wYL9BqMGGD6q0Q3mAPnyqyyVV4=",
   "Source": "mvc",
   "BasePath": "_content/mvc",
   "Mode": "Default",
@@ -93,6 +93,25 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\225-2253415_maggi-masala-noodles-140g-hd-png-download.png",
+      "SourceId": "mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\",
+      "BasePath": "_content/mvc",
+      "RelativePath": "images/225-2253415_maggi-masala-noodles-140g-hd-png-download.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\225-2253415_maggi-masala-noodles-140g-hd-png-download.png"
+    },
+    {
       "Identity": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\9e89c5bf28e (1).png",
       "SourceId": "mvc",
       "SourceType": "Discovered",
@@ -129,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Ceramic Jar.jpg"
+    },
+    {
+      "Identity": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\Login.png",
+      "SourceId": "mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\",
+      "BasePath": "_content/mvc",
+      "RelativePath": "images/Login.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Login.png"
     },
     {
       "Identity": "F:\\PPSU\\sem-08\\casepoint\\CoreMvc\\DEMOPROJECT\\mvc\\wwwroot\\images\\World Health Day (4).png",

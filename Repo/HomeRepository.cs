@@ -14,7 +14,7 @@ namespace mvc.Repo
             try
             {
                 conn.Open();
-                using (var command = new NpgsqlCommand("SELECT c_sid, c_name, c_gender, c_photo, c_area, c_admission_date, c_hobby FROM t_srs;", conn))
+                using (var command = new NpgsqlCommand("SELECT c_sid, c_name, c_gender, c_photo, c_area, c_admission_date, c_hobby FROM t_srs ORDER BY c_sid", conn))
                 {
                     using (var reader = command.ExecuteReader())
                     {
