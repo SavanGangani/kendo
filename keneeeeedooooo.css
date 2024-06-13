@@ -1,0 +1,53 @@
+
+.k-scheduler-content td {
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 2px;
+}
+
+
+
+.k-scheduler-content .k-today {
+  background-color: #dceeff; 
+  color: #fff;
+}
+
+.k-scheduler-content td:hover {
+  background-color: #e9edee;
+  cursor: pointer; 
+}
+
+
+.k-scheduler-content .k-event {
+  min-height: 25px;
+  cursor: pointer;
+  margin-top: 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #003145;
+  border-radius: 0;
+  margin-left: -1px;
+  background: rgba(74,136,233,.2);
+  font-size: 14px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-color: #4a88e9;
+  border-width: 0 0 0 3px;
+  border-style: solid;
+  padding-left: 0;
+}
+
+
+.sch-detail-content .sch-label {
+  font-size: 12px;
+  color: #949eb2;
+  font-weight: 700;
+  height: 22px;
+  line-height: 22px;
+  margin-top: 6px;
+  display: block;
+}
+
+.k-scheduler-toolbar {
+  background-color: #3AAFA9 !important;
+}
